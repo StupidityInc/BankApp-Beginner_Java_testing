@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class BankAccount {
+public class BankAccount implements Serializable {
     private final String id;
     private String owner;
     private BigDecimal balance;
