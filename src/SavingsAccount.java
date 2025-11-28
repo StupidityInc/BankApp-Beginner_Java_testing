@@ -11,6 +11,7 @@ public class SavingsAccount extends BankAccount {
     public void withdraw(BigDecimal amount) throws InsufficientFundsException {
         if (this.getBalance().compareTo(amount.add(MINIMUM_BALANCE)) >= 0) {
             super.withdraw(amount);
+            return;
         }
         throw new InsufficientFundsException("Withdrawal failed: Account ID " + this.getId() + " has insufficient funds.");
     }

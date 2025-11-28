@@ -10,6 +10,7 @@ public class CheckingAccount extends BankAccount{
     public void applyMonthlyFee() throws InsufficientFundsException{
         if (this.getBalance().compareTo(MONTHLY_FEE) >= 0) {
             this.withdraw(MONTHLY_FEE);
+            return;
         }
         throw new InsufficientFundsException("Withdrawal failed: Account ID " + this.getId() + " has insufficient funds.");
     }
