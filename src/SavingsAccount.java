@@ -8,10 +8,10 @@ public class SavingsAccount extends BankAccount {
     }
 
     @Override
-    public boolean withdraw(BigDecimal amount) {
+    public void withdraw(BigDecimal amount) throws InsufficientFundsException {
         if (this.getBalance().compareTo(amount.add(MINIMUM_BALANCE)) >= 0) {
-            return super.withdraw(amount);
+            super.withdraw(amount);
         }
-        return false;
+        throw new InsufficientFundsException("Withdrawal failed: Account ID " + this.getId() + " has insufficient funds.");
     }
 }

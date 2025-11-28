@@ -7,10 +7,10 @@ public class CheckingAccount extends BankAccount{
         super(id, owner, initialDeposit);
 
     }
-    public boolean applyMonthlyFee(){
+    public void applyMonthlyFee() throws InsufficientFundsException{
         if (this.getBalance().compareTo(MONTHLY_FEE) >= 0) {
-            return this.withdraw(MONTHLY_FEE);
+            this.withdraw(MONTHLY_FEE);
         }
-        return false;
+        throw new InsufficientFundsException("Withdrawal failed: Account ID " + this.getId() + " has insufficient funds.");
     }
 }

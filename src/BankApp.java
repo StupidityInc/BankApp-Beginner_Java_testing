@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 
 public class BankApp {
-    public static void main(String[] args){
+    public static void main(String[] args) throws InsufficientFundsException {
         Bank tauBank = new Bank();
         SavingsAccount saving = new SavingsAccount("67", "Uri", new BigDecimal("1000000000.00"));
         tauBank.addAccount(saving);

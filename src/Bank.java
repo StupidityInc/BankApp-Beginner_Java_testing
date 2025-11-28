@@ -16,7 +16,7 @@ public class Bank {
         }
         return null;
     }
-    public void applyMonthlyFees(){
+    public void applyMonthlyFees() throws InsufficientFundsException{
         for (BankAccount account : bankAccounts){
             if (account instanceof CheckingAccount){
                 CheckingAccount checking = (CheckingAccount) account;

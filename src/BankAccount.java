@@ -18,12 +18,12 @@ public class BankAccount {
     public void deposit(BigDecimal amount) {
         this.balance = balance.add(amount);
     }
-    public boolean withdraw(BigDecimal amount) {
+    public void withdraw(BigDecimal amount) throws InsufficientFundsException {
         if (balance.compareTo(amount) >= 0) {
             this.balance = this.balance.subtract(amount);
-            return true;
+            return;
         }
-        return false;
+        throw new InsufficientFundsException("Withdrawal failed: Account ID " + this.getId() + " has insufficient funds.");
     }
 
     public String getId() {
